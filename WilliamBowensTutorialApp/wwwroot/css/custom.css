@@ -1,0 +1,151 @@
+﻿
+
+body, html {
+    height: 100%;
+    
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    margin-top: auto;
+}
+
+video{
+    border-radius: 5px;
+}
+
+
+.screen{
+    background-color:black;
+   
+}
+
+
+.container1 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 66.25%; 
+}
+
+.adjusted-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 85%;
+    border: none;
+    border-radius: 5px;
+}
+
+.rad {
+    border-radius: 5px;
+    text-shadow: 5px 3px 10px #910000;
+}
+
+
+.borderadjust {
+    border-radius: 5px;
+}
+
+shine:hover {
+    color: #910000;
+}
+
+.viser {
+    background-color: black;
+}
+
+.rightalign {
+    justify-content: right;
+}
+
+.search:hover {
+    color: black;
+    background-color: #910000;
+    border-color: #910000;
+}
+
+.scale {
+    transform: scale(1, 0.50);
+    transform-origin: top;
+}
+
+
+
+.video-container {
+    float: right; 
+    width: 50%; 
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .video-container {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+
+.attribution{
+    color: white;
+}
+
+.attribution:hover{
+    color: #910000;
+}
+
+
+
+
+#scale {
+    height: 700px;
+    width: 306px;
+}
+
+
+#backgroundVideo{
+    object-fit: cover; 
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -100;
+}
+
+
+.imageadjusment{
+    width: 50px;
+    height: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,190 @@
+﻿@{
+    ViewData["Title"] = "Tutorial - Page 3";
+}
+
+<h2 id="home2">@ViewData["Title"]</h2>
+
+<div class="text-center rad border-bottom border-light border-3 bg-black">
+    <div class="container px-5">
+        <div class="row justify-content-center">
+
+
+            <h2 class="fw-bolder mt-5">E.F.C for Database Interactions</h2>
+            <p class="text-light fs-4">
+                Whew! You have reached the third and final phase of this tutorial! In this 
+                tutorial I will demonstrate a brief example of a CRUD operation that ties in Entity 
+                Framework Core for database interactions. Almost there! 
+            </p>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Video section one-->
+
+<div class="container bg-black borderadjust border-bottom border-light border-3 shadow-lg pt-4 pb-5">
+    <div class="row">
+        
+        <div class="col-md-6">
+            <h2 class="bg-black text-light rad fst-italic">Create Operation</h2>
+            <p class="text-light fs-5">
+                In this demonstration, I am going to update the class schedule with a new teacher 
+                added “John Cramer” and a new “test class”. When I added the new teacher and the new 
+                test class, I was performing the “create” operation by adding additional elements in 
+                real time to the database. In addition, when you are adding a migration file to the database, 
+                you are also performing a create operation because you are preparing to create more elements 
+                within the database with the add-migration command. The example you have seen is a basic walkthrough of what the user sees. 
+                Diving deeper into the code, you can create a generic repository like this: 
+                <b> var data= new Repository<vehicle>(ctx) </b> to perform CRUD operations.
+            </p>
+        </div>
+
+       
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" id="vidvolume" class="embed-responsive-item" controls>
+                    <source src="~/media/create.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-4">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+</div>
+
+<!--Video section two-->
+<div class="container bg-black borderadjust border-bottom border-light border-3 shadow-lg pt-4 pb-5">
+    <div class="row">
+      
+        <div class="col-md-6">
+            <h2 class="bg-black text-light rad fst-italic">Read Operation</h2>
+            <p class="text-light fs-5">
+                In the class schedule application, the class repository is created like this: 
+                private Repository<Class> classes {get; set; }. The private helper method getclass()
+                is created to retrieve “read” a class object by using the id parameter that’s passed. 
+                The LINQ “Language Integrated Query method<b> where = c => c.ClassId == id</b> filters 
+                the query so that it returns only the matching classID matches the id provided. This is 
+                the equivalent to writing the “where” clause in SQL.
+            </p>
+        </div>
+
+       
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" id="vidvolume2" class="embed-responsive-item" controls>
+                    <source src="~/media/read.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-4">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+</div>
+
+<!--Video section three-->
+<div class="container bg-black borderadjust border-bottom border-light border-3 shadow-lg pt-4 pb-5">
+    <div class="row">
+        
+        <div class="col-md-6">
+            <h2 class="bg-black text-light rad fst-italic">Update Operation</h2>
+            <p class="text-light fs-5">
+                Similar to the read operation, the ClassConfig file uses LINQ to update the delete 
+                behavior of the class schedule application. In this case, EntityTypeBuilder<Class> entity 
+                is the builder used in the EF core. The code snippet entity.HasOne(c => c.Teacher), is the 
+                LINQ expression that sets the relationship between the teacher and the class. The “.OnDelete(DeleteBehavior.Restrict)”
+                code snippet is critical in defining the update operation. With this command, any attempt to delete a teacher is restricted. 
+                This method is a way to ensure that the database is not corrupted.
+            </p>
+        </div>
+
+        
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" id="vidvolume3" class="embed-responsive-item" controls>
+                    <source src="~/media/update.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-4">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+</div>
+
+
+<!--Video section four-->
+
+<div class="container bg-black borderadjust shadow-lg pt-4 pb-5">
+    <div class="row">
+        <div class="col-12">
+            
+            <h2 class="text-light rad fst-italic">Delete Operation</h2>
+           
+            
+
+                <div class="video-container float-md-right mb-3">
+                  
+                    <video controls class="embed-responsive-item" style="height:100%; width:100%;" id="vidvolume4">
+                        <source src="~/media/delete.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            <p class="text-light fs-5">
+                Let’s have a look at the action going on behind the scenes. Like the update operation above, this example uses the following code for the “delete” operation: <br />
+                
+                <b>
+                    [HttpGet] <br />
+                    public ViewResult Delete(int id)<br />
+                    { <br />
+                    var c = this.GetClass(id); <br />
+                    return View(c); <br />
+                    }<br />
+
+                    [HttpPost]<br />
+                    public RedirectToActionResult Delete(Class c)<br />
+                    {<br />
+                    classes.Delete(c);<br />
+                    classes.Save();<br />
+                    return RedirectToAction("Index", "Home");<br />
+                    }
+                </b><br />
+                
+                Lets break this code down step by step. The [httpGet] responds to the get request.
+                The public ViewResult Delete initiates the delete operation passing “int id” as the
+                parameter. Keep in mind that the “int id” corresponds to the target class that’s set to be deleted.
+                The LINQ statement, var c = this.GetClass(id) actually calls the Getclass(id) method and stores it in the
+                variable “c”. C is then passed in the return View statement. The meat and potatoes is the public
+                RedirectToActionResult Delete. This method actually handles deletion and redirects the user back to
+                the view which displays the remaining elements after the process.
+
+            </p>
+           
+        </div>
+    </div>
+  
+
+    <div class="text-center pt-4 pb-5">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+    <div class="text-center pt-5 border-top border-light border-3">
+        <a class="btn btn-lg btn-dark fst-italic" asp-area="Help" asp-controller="Tutorial" asp-route-id="2" asp-action="Index">
+            Prev
+        </a>
+    </div>
+    <a class="btn btn-lg btn-dark fst-italic" href="#home2">
+        Back to top
+    </a>
+</div>
+
+
+
+
+

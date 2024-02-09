@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Tutorial - Page 1";
+}
+
+<h2 class="fst-italic">@ViewData["Title"]</h2>
+
+<!--Test video section-->
+
+<div class="container borderadjust bg-black shadow-lg pb-5 pt-4">
+    <div class="row">
+       
+        <div class="col-md-6">
+            <h2 class="text-light rad fst-italic">ASP.NET Core MVC Breakdown</h2>
+            <p class="text-light fs-5">
+                Welcome to the first page of my ASP.NET tutorial application!
+                Before we kick off the next tutorial, I want to begin this tutorial with a very brief presentation
+                of a diagram representing the overall structure of the ASP.NET Core MVC architecture.
+                The MVC architecture works in unison to present data and the interface to the user through the view,
+                handle request and response back to the view with the controller, handle validation, and communication with the
+                database through the model. Understanding these fundamental concepts of ASP.NET Core MVC architecture is complex but crucial,
+                especially as we dive deeper into the code. But let’s breathe, relax, take this step by step and power through it!
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" class="embed-responsive-item" controls>
+                    <source src="~/media/tutorial_intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center pt-4 pb-5">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+   
+    <div class="text-center pt-5 border-top border-light border-3">
+        <a class="btn btn-lg btn-dark 
+        fst-italic" asp-area="Help" asp-controller="Tutorial" asp-route-id="2" asp-action="Index">
+            Next
+        </a>
+    </div>
+</div>
+
+

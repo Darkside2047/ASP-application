@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+
+    string c = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+
+    string a = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+
+}
+
+<video autoplay muted loop id="backgroundVideo">
+    <source src="~/media/vecteezy_carina-nebula-animation-space-flight-4k_21572226.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+
+<main>
+
+        <div class="container pt-5 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bolder text-light mt-5">Welcome to the ASP.NET Core MVC Tutorial Application!</h1>
+                    <p class="text-light fs-4 fst-italic">
+                        I am glad to present you with the opportunity to explore my ASP.NET Core MVC tutorial.
+                        In this application, I will be covering a short range of topics from a brief introduction to ASP.NET Core MVC
+                        in the about section, to a short step by step tutorial featuring an FAQ section. I hope you enjoy
+                        this app, and please feel free to reach out to me and also provide your contact information along with detailed feedback
+                        on your experience! Once again, welcome!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+   <!--Ninja slider section starts here-->
+    <div id="ninja-slider">
+        <div class="slider-inner">
+            <ul>
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="About"><img class="ns-img" src="~/images/choice.png" style="cursor:pointer;" /></a>
+                    <div class="caption cap1 bg-black">ASP.NET CORE MVC Evolution</div>
+                   
+                    
+                </li>
+                <li>
+                    <a asp-area ="Help" asp-controller="Home" asp-action="Index"><img class="ns-img" src="~/images/question_mark.png" style="cursor:pointer;" /></a>
+                    <div class="caption cap1 bg-black">Frequently Asked Questions</div>
+                   
+                    
+                </li>
+                <li>
+                    <a asp-area="Help" asp-controller="Tutorial" asp-action="Index" asp-route-id="2"><img class="ns-img" src="~/images/tutorial.png" style="cursor:pointer;" /></a>
+                    <div class="caption cap1 bg-black">In Depth Code Tutorials</div>
+                   
+                </li>
+               
+            </ul>
+            <div class="fs-icon" title="Expand/Close"></div>
+        </div>
+    </div>
+
+    
+
+
+
+       
+</main>
+

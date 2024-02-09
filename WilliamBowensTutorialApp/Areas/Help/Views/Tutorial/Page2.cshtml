@@ -1,0 +1,210 @@
+﻿@{
+    ViewData["Title"] = "Tutorial - Page 2";
+}
+ 
+<h2 id="home" class="fst-italic">@ViewData["Title"]</h2>
+
+<div class="text-center rad border-bottom border-light border-3 bg-black">
+<div class="container px-5">
+    <div class="row justify-content-center">
+
+
+            <h2 class="fw-bolder rad mt-5">Setting up a basic ASP.NET Core MVC Project</h2>
+            <p class="text-light fs-4">
+                Welcome to the second page of my tutorial application! In this tutorial,
+                I am going to walk you through step by step on how to create a basic ASP.NET Core MVC demonstration
+                app that contains a small navigation menu and displays displays “Welcome to the demonstration Page!”
+                to the user. Often, the most difficult task in any project is getting started and laying a good 
+                foundation. But let’s relax, breathe, and take the first step with getting started!
+            </p>
+
+    </div>
+
+</div>
+
+</div>
+
+<!--Video section one-->
+
+<div class="container bg-black borderadjust border-bottom border-light border-3 shadow-lg pt-4 pb-5">
+    <div class="row">
+       
+        <div class="col-md-6">
+            <h2 class="bg-black text-light rad fst-italic">Creating the Demonstration Project</h2>
+            <p class="text-light fs-5">
+                In this video I will walk you through the first step of creating the demonstration 
+                application using ASP.NET Core MVC. You are more than welcome to follow along with this 
+                tutorial if you have visual studio code 2022 installed on your computer.
+                Starting a new ASP.NET Core MVC project is completed performing the following steps:
+                <ol class="text-light">
+                    <li>Download and install Visual Studio Code 2022</li>
+                    <li>Click "create new project" on the right hand side</li>
+                    <li>When the list is presented, select "ASP.NET Core Web App(MVC)"</li>
+                    <li>In the project name field, create a project name</li>
+                    <li>Select the target location where you want your project to be saved and click next</li>
+                    <li>Ensure the framework ".NET6.0(Long Term Support)" option is selected</li>
+                    <li>Ensure the "Configure for HTTPS" option is checked and click create</li>
+                </ol>
+            </p>
+        </div>
+
+       
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" class="embed-responsive-item" controls>
+                    <source src="~/media/step1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-4">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+</div>
+
+<!--Video section two-->
+<div class="container bg-black borderadjust border-bottom border-light border-3 shadow-lg pt-4 pb-5">
+    <div class="row">
+       
+        <div class="col-md-6">
+            <h2 class="bg-black text-light rad fst-italic">File Structure Overview</h2>
+            <p class="text-light fs-5">
+                This tutorial walks you through the basic file structure overview when we created 
+                the demonstration application in the previous tutorial. I cover four basic directories,
+                wwwroot, homeconroller, models, and views which contains the two subfolders home, and shared. 
+                The views folder contains the razor view pages which display what the user sees. The pages are 
+                broken down into a shared layout which could be compared to the central viewing screen in an airport 
+                terminal that shows all the aircraft departure and landing times. The other pages that share the layout
+                can be compared to individual aircraft departure and take off times. The home controller acts like the 
+                air traffic control tower that clears the request to either take off or land. Lastly, the model’s folder 
+                serves as the security checkpoint that checks passengers and a baggage handling that checks and routes the 
+                luggage.
+            </p>
+        </div>
+
+        
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" class="embed-responsive-item" controls>
+                    <source src="~/media/step2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-4">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+</div>
+
+<!--Video section three-->
+<div class="container bg-black borderadjust border-bottom border-light border-3 shadow-lg pt-4 pb-5">
+    <div class="row">
+        
+        <div class="col-md-6">
+            <h2 class="bg-black text-light rad fst-italic">Exploring the Layouts</h2>
+            <p class="text-light fs-5">
+                In this tutorial, I display what the user will see when they are viewing the demonstration 
+                application in action and the functionality of the shared layout. The navigation bar at the 
+                top is displayed using the shared layout. When the home link is clicked, the welcome page, 
+                which is the index.cshtml page is displayed. When the privacy link is clicked, the privacy.cshtml 
+                page is displayed. But notice the navigation bar is displayed with both pages.
+            </p>
+        </div>
+
+       
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" class="embed-responsive-item" controls>
+                    <source src="~/media/step3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-4">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+</div>
+
+<!--Video section four-->
+<div class="container bg-black borderadjust border-bottom border-light border-3 shadow-lg pt-4 pb-5">
+    <div class="row">
+        
+        <div class="col-md-6">
+            <h2 class="bg-black text-light rad fst-italic">Creating a New Page and Nav Link</h2>
+            <p class="text-light fs-5">
+                In this tutorial, I will walk you through how to create an additional navigation link 
+                which will display the message “Congratulations! You made it to the demonstration page”. 
+                I first created the razor page “demonstration” in the home subfolder as an individual page.
+                In the next step I created an additional navigation link “Demonstration” in the shared layout file 
+                in which I set the asp-area to the default, the asp-controller to “home” and the asp-action to 
+                “Demonstration”. Lastly, I add an additional action method to the home controller called “demonstration”
+                which will return the view.
+            </p>
+        </div>
+
+        
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" class="embed-responsive-item" controls>
+                    <source src="~/media/step4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-4">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+</div>
+
+<!--Video section five-->
+<div class="container bg-black borderadjust shadow-lg pt-4 pb-5">
+    <div class="row">
+       
+        <div class="col-md-6">
+            <h2 class="bg-black text-light rad fst-italic">New Nav Link Demonstration</h2>
+            <p class="text-light fs-5">
+                In this last video, I demonstrate how everything ties together. 
+                In the previous video, I created the mechanics of adding an additional 
+                navigation link in the shared layout by creating the demonstration.cshtml page, a 
+                nav link for the demonstration page, and the action method to return the view for
+                the demonstration page. This tutorial drives home the fundamental concepts of how 
+                ASP.NET Core MVC is broken down into individual components that are easily managed. I would like 
+                to thank you for the opportunity to present this tutorial on beginning a basic ASP.NET
+                application, and I encourage you to check out page 3 of this tutorial on how CRUD “Create,
+                read, update, and delete” operations tie into entity framework core and database interactions. 
+                See you there!
+            </p>
+        </div>
+
+        
+        <div class="col-md-6">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video style="height:100%; width:100%;" class="embed-responsive-item" controls>
+                    <source src="~/media/step5.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-4 pb-5">
+        <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+    </div>
+    <div class="text-center pt-5 border-top border-light border-3">
+        <a class="btn btn-lg btn-dark fst-italic" asp-area="Help" asp-controller="Tutorial" asp-route-id="1" asp-action="Index">
+            Prev
+        </a>
+
+        <a class="btn btn-lg btn-dark fst-italic" asp-area="Help" asp-controller="Tutorial" asp-route-id="3" asp-action="Index">
+            Next
+        </a>    
+    </div>
+
+    <a class="btn btn-lg btn-dark fst-italic" href="#home">
+        Back to top 
+    </a>
+    
+</div>

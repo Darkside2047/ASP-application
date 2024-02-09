@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string controller =
+     ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    string action =
+        ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+}
+
+<div class="text-center">
+    <div class="container px-5">
+        <div class="row justify-content-center">
+
+
+            <h1 class="fw-bolder rad bg-black mt-5">Welcome to the Tutorial Section!</h1>
+            <p class="text-dark fs-4 fst-italic">
+                This section covers frequently asked questions from students and users, and a
+                small list of quick tips to help you along. Upon clicking the tutorials tab, you
+                will be guided through step-by-step tutorials on the fundamentals of ASP.NET architecture,
+                a how-to-guide on setting up an ASP.NET Core MVC project, and lastly, an example
+                of a CRUD (Create, Read, Update, delete) operation walkthrough that ties in Entity framework
+                core for database interactions. ASP.NET Core MVC can be intimidating, but as with everything, start slowly,
+                begin with the foundation, and build piece by piece!
+            </p>
+
+        </div>
+    </div>
+</div>
+
+
+<!--Tab section begins here-->
+<div class="container border-bottom border-3 border-dark mt-3">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link fs-4 bg-black @(controller == "Home" && action == "Index" ? "active" : "")
+            " id="tutorial-tab" data-toggle="tab" asp-area="Help" asp-controller="Home"
+               asp-action="Index">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-4 bg-black  @(controller == "Tutorial" && action == "Index" ? "active" : "")
+                " id="tutorial-tab" data-toggle="tab" asp-area="Help" asp-controller="Tutorial"
+               asp-action="Index" asp-route-id="1">Tutorials</a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+
+
+@section scripts{
+
+    @RenderSection("scripts", required:false)
+}
+

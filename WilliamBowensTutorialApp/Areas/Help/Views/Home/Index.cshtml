@@ -1,0 +1,227 @@
+﻿@{
+    ViewData["Title"] = "Frequently Asked Questions";
+}
+
+@section Scripts {
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    
+    <script src="~/lib/jqueryui/jquery-ui.js"></script>
+
+   
+<script>
+
+     //The jquery code below was derived from: https://www.javatpoint.com/jquery-ui-autocomplete
+
+
+    //Javascript function to handle autocomplete functionality for the search bar created here
+
+    $(document).ready(function () {
+
+        //Test auto complete function start
+
+        //Hard Coded array to store selected search terms to match
+
+        var faqQuestions = [
+            "console", "developing",
+            "data schema", "local database", "visual studio code",
+            "NutGet Package Manager", "Package Manager Console", "project",
+            "controllers", "routing", "http", "request",
+            "user input", "interaction", "client", "URL", "localhost",
+            "home controller", "action method", "default route", "data validation",
+            "server", "basic validation practice", "data attribute", "model",
+            "server side validation", "validate method", "custom error message",
+            "segment", "update-database",
+
+
+
+        ];
+
+        //The autocomplete functionality starts here
+        $("#searchInput").autocomplete({   //Uses the hardcoded database "faqQuestions" to autocomplete the search
+            source: faqQuestions,
+            select: function (event, ui) {
+                // collapse the accordian
+                $('.collapse').collapse('hide');
+
+                // Searches and displays the selected words
+                $('.accordion-item').each(function () {   //Cycles through each accordion word and converts them to lowercase
+                    var questionText = $(this).find('.accordion-header').text().toLowerCase();
+
+                    if (questionText === ui.item.value.toLowerCase()) {   //Boolean function to display the matching words
+                        $(this).find('.collapse').collapse('show');
+                        return false;
+                    }
+                });
+            }
+        });
+
+        //The autocomplete functionality ends here
+
+
+
+        $('#faqSearchForm').on('submit', function (event) {
+            event.preventDefault(); // Prevents the default form submission
+
+            var searchTerm = $('#searchInput').val().toLowerCase();  //Stores the word entered in the search box into a variable search term
+
+            $('.accordion-item').each(function () {  //Function declared to sort through the accordion items
+                var questionText = $(this).find('.accordion-header').text().toLowerCase(); //Converts text within both accordion header and body to lowercase for searching
+                var answerText = $(this).find('.accordion-body').text().toLowerCase();
+
+                if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {  //Boolean statement that compares the text you entered to each word within the accordion
+                    $(this).show(); // Displays the corresponding accordion
+                } else {
+                    $(this).hide(); // Hides the noncorresponding accordions
+                }
+            });
+        });
+
+        //Function declared for the clear search
+        function resetSearch() {
+            $('#searchInput').val(''); // Clears the search input
+            $('.accordion-item').show(); // Displays all items
+            $('.collapse').collapse('hide'); // Collapses all accordion items
+        }
+
+        // Handles the click event for the clear button
+        $('#clearSearch').on('click', function () {
+            resetSearch();
+        });
+
+    });
+</script>
+
+
+}
+
+
+
+
+<div class="container borderadjust bg-black border-bottom border-light border-3 shadow-lg mt-3">
+    <h2 class="bg-black rad text-light fst-italic">Quick Tips</h2>
+    <ul class="fs-5 text-light">
+           <li>Remember to run the "Update-databse" command to populate your local database or when making changes to the database</li>
+           <li>When passing a model to an action method, ensure the name you are passing matches the model</li>
+           <li>You can map user input using http request and passing them to action method parameters in your controller using model binding</li>
+           <li>Visual Studios "hot reload" feature is a useful debugging tool to test your application while its running</li>
+           <li>Always remember to check for syntax and logic errors</li>
+           <li>Stay calm through the code, and stay motivated!</li>
+
+       </ul>
+    <div class="d-flex justify-content-between align-items-center bg-black rad">
+        
+        <h2 class="text-light fst-italic">@ViewData["Title"]</h2>
+        
+        <form action="" id="faqSearchForm" method="" class="flex-grow-1 mx-3">
+           
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control mr-sm-2 col-md-4 offset-md-4" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-dark fst-italic" type="submit">Search</button>
+                    <button id="clearSearch" class="btn btn-dark fst-italic" type="button">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--FAQ Section in accordian format-->
+
+<div class="accordion mb-5" id="accordionExample">
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="headingOne"><button class="accordion-button fst-italic fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">"My login failed, and I'm receiving the error: "Cannot open the database". 
+            What could be causing this issue?"</button></h3>
+        <div class="accordion-collapse collapse show" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body bg-black text-light">
+                <strong class="fst-italic">Answer:</strong>
+
+                The issue lies with the data not being updated when you are either developing an application 
+                from scratch or importing a project that’s utilizing a previously created data package. It is critical 
+                that you run the “Update-Database” command when you make are making any changes to the data schema, and 
+                when you need to populate your local database with initial data. The following steps ensure that your database 
+                is updated correctly.
+                <ul>
+                    <li>Open the 'Tools' tab in visual studio code</li>
+                    <li>Click the 'NutGet Package Manager' tab </li>
+                    <li>Click the 'Package Manager Console' tab</li>
+                    <li>In the console, type 'Update-Database' and press enter</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="headingTwo"><button class="accordion-button fst-italic fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What is the purpose of a controller in an ASP.NET Core MVC application?</button></h3>
+        <div class="accordion-collapse collapse" id="collapseTwo" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body bg-black text-light">
+                <strong class="fst-italic">Answer:</strong>
+                Consider controllers as the backbone in any ASP.NET Core MVC application. They handle incoming http requests and send the 
+                responses back to the client. The controller acts as the broker between what the user is viewing “The user interface”
+                and the data models of the application. Essentially, the controllers handle user input, interaction, and routing.
+                
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h3 class="accordion-header" id="headingThree"><button class="accordion-button fst-italic fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">How does a default route function in ASP.NET Core MVC applications?</button></h3>
+        <div class="accordion-collapse collapse" id="collapseThree" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body bg-black text-light">
+                <strong class="fst-italic">Answer:</strong>
+                The routing system in ASP.NET Core MVC follows a set pattern. The home controller is set to the default route for the first segment of the URL.
+                It is then followed by the index() action method for the second part, and a ? is added that sets the third part as being optional. 
+                Here is an example URL with all three parts: <br />
+               <b>https: // localhost: 7098/Home/Index/John</b><br />
+                Home is the first segment of the URL followed by the index, which the second segment. Lastly, John is the third segment.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion mb-5 mb-xl-0" id="accordionExample2">
+        <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button fst-italic fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2">How does data validation function in ASP.NET Core MVC applications?</button></h3>
+            <div class="accordion-collapse collapse show" id="collapseOne2" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body bg-black text-light">
+                    <strong class="fst-italic">Answer:</strong>
+
+                    ASP.NET Core MVC is extremely flexible when handling data validation. It can be handled both on the client side and the server side.
+                    Here is an example a basic validation practice handled in a class: <br />
+                    public class Validate <br />
+                    { <br />
+                    [Required] <br />
+                    public DateTime Date { get; set; } <br />
+                    [Range(-100, 100)] <br />
+                    public int Low { get; set; } <br />
+                    } <br />
+                    The class temp is declared with the data attribute “[required]” applied. Specific validation rules and a 
+                    custom message can be applied. On the server side, validation is handled through an action method like the example below: <br />
+                    [HttpPost] <br />
+                    public IActionResult validate(validateModel model) <br />
+                    { <br />
+                    if (ModelState.IsValid) <br />
+                    { <br />
+                    return RedirectToAction("Success"); <br />
+                    } <br />
+                    return View(model); <br />
+                    } <br />
+                    The model is passed through the validate method to check if the requirements have been met. If the data is invalid, 
+                    the user is redirected back to the page with the custom error message displayed. If the data is valid, the user is redirected to the example
+                    “success” page. Server side validation acts as the last line of defense for an ASP.NET Core application.
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container borderadjust border-top border-light border-1 shadow-lg bg-black pt-4 pb-4">
+        <div class="text-center">
+            <img src="~/images/Reca_Red_TP.png" class="img-fluid img-display imageadjusment" alt="The Reca Logo" />
+        </div>
+    </div>
+</div>
+
+<!--End FAQ section-->
+
+
+
